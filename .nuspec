@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>TS.CleanArchitecture</id>
-    <version>8.0.5</version>
+    <version>8.0.8</version>
     <title>ASP.NET Clean Architecture Solution</title>
     <authors>Taner Saydam</authors>
     <owners>Taner Saydam</owners>
@@ -10,23 +10,21 @@
     <releaseNotes>Initial release of the project template.</releaseNotes>
     <language>en-US</language>
     <projectUrl>http://www.tanersaydam.net/</projectUrl>
-    <icon>images/icon.jpg</icon>
+    <icon>./content/icon.jpg</icon>
     <repository type="git" url="https://github.com/TanerSaydam/CleanArchitecture.Template"/>
-    <tags>Project Solution for Clean Architecture</tags>    
+    <tags>Web ASP.NET "Clean Architecture" clean-architecture clean architecture ts SOLID</tags>    
     <license type="file">LICENSE.txt</license>
     <readme>README.md</readme>
     <packageTypes>
       <packageType name="Template" />
-    </packageTypes>
+    </packageTypes>    
     <dependencies>
       <!-- If your template has dependencies to other packages, list them here -->
     </dependencies>
   </metadata>
   <files>    
-    <file src="**/*" target="content" exclude="**/*.nuspec;**/README.md;**/*.nupkg;**/bin/**;**/obj/**;**/.vs/**;**/*.user;**/*.suo;**/.git/**;**/.git**/LICENSE.txt;*" />    
-    <file src="README.md" target="" />
-    <file src="LICENSE.txt" target="" />    
-    <file src=".template.config/template.json" target=".template.config/template.json" />    
-    <file src="images/icon.jpg" target="images/icon.jpg" />    
+    <file src=".\**" target="content" exclude="**\bin\**;**\obj\**;**\.git\**;**\.github\**;**\*.user;**\.vs\**;**\.vscode\**;**\.gitignore;**\sample\**;**\images\**" />
+     <file src="README.md" />
+     <file src="LICENSE.txt" />
   </files>
 </package>

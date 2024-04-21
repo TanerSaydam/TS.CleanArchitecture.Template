@@ -13,11 +13,10 @@ internal sealed class LoginCommandHandler(
     IJwtProvider jwtProvider) : IRequestHandler<LoginCommand, Result<LoginCommandResponse>>{
     public async Task<Result<LoginCommandResponse>> Handle(LoginCommand request, CancellationToken cancellationToken)
     {
-        string emailOrUserName = request.EmailOrUserName.ToUpper();
         AppUser? user = await userManager.Users
             .FirstOrDefaultAsync(p =>
-            p.NormalizedUserName == emailOrUserName ||
-            p.NormalizedEmail == emailOrUserName,
+            p.UserName == request.EmailOrUserName ||
+            p.Email == request.EmailOrUserName,
             cancellationToken);
 
         if (user is null)
