@@ -1,0 +1,15 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Taner Saydam",
+    "classifications": [ "C#", "ASP.NET", "WebAPI", "CleanArchitecture" ], 
+    "name": "ASP.NET Clean Architecture Solution",
+    "identity": "TS.CleanArchitecture",
+    "shortName": "ts.cleanarchitecture",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "sourceName": "CleanArchitecture",
+    "preferNameDirectory": true
+  }
+  

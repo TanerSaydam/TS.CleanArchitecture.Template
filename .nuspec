@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>TS.CleanArchitecture</id>
+    <version>8.0.5</version>
+    <title>ASP.NET Clean Architecture Solution</title>
+    <authors>Taner Saydam</authors>
+    <owners>Taner Saydam</owners>
+    <description>A template for creating projects using Clean Architecture.</description>
+    <releaseNotes>Initial release of the project template.</releaseNotes>
+    <language>en-US</language>
+    <projectUrl>http://www.tanersaydam.net/</projectUrl>
+    <icon>images/icon.jpg</icon>
+    <repository type="git" url="https://github.com/TanerSaydam/CleanArchitecture.Template"/>
+    <tags>Project Solution for Clean Architecture</tags>    
+    <license type="file">LICENSE.txt</license>
+    <readme>README.md</readme>
+    <packageTypes>
+      <packageType name="Template" />
+    </packageTypes>
+    <dependencies>
+      <!-- If your template has dependencies to other packages, list them here -->
+    </dependencies>
+  </metadata>
+  <files>    
+    <file src="**/*" target="content" exclude="**/*.nuspec;**/README.md;**/*.nupkg;**/bin/**;**/obj/**;**/.vs/**;**/*.user;**/*.suo;**/.git/**;**/.git**/LICENSE.txt;*" />    
+    <file src="README.md" target="" />
+    <file src="LICENSE.txt" target="" />    
+    <file src=".template.config/template.json" target=".template.config/template.json" />    
+    <file src="images/icon.jpg" target="images/icon.jpg" />    
+  </files>
+</package>

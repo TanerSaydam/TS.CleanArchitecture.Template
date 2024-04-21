@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>CleanArchitecture.Application</id>
+    <version>1.0.0</version>
+    <authors>CleanArchitecture.Application</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net8.0">
+        <dependency id="CleanArchitecture.Domain" version="1.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Test\CleanArchitecture\CleanArchitecture.Application\bin\Release\net8.0\CleanArchitecture.Application.dll" target="lib\net8.0\CleanArchitecture.Application.dll" />
+  </files>
+</package>
