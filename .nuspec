@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>TS.CleanArchitecture</id>
-    <version>8.0.9</version>
+    <version>8.1.0</version>
     <title>ASP.NET Clean Architecture Solution</title>
     <authors>Taner Saydam</authors>
     <owners>Taner Saydam</owners>
