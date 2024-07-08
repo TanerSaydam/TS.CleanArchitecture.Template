@@ -3,7 +3,11 @@ using CleanArchitecture.Infrastructure;
 using CleanArchitecture.WebAPI.Middlewares;
 using DefaultCorsPolicyNugetPackage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.OData;
+using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.OpenApi.Models;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +18,10 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddExceptionHandler<ExceptionHandler>();
 builder.Services.AddProblemDetails();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddOData(action =>
+{
+    action.EnableQueryFeatures();
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(setup =>
 {
@@ -42,6 +49,19 @@ builder.Services.AddSwaggerGen(setup =>
                 });
 });
 
+builder.Services.AddRateLimiter(options =>
+{
+    options.AddFixedWindowLimiter("fixed", options =>
+    {
+        options.QueueLimit = 100;
+        options.PermitLimit = 100;
+        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        options.Window = TimeSpan.FromSeconds(1);
+    });
+});
+
+builder.Services.AddHealthChecks().AddCheck("healthcheck", () => HealthCheckResult.Healthy());
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -54,9 +74,11 @@ app.UseHttpsRedirection();
 
 app.UseCors();
 
+app.UseRateLimiter();
+
 app.UseExceptionHandler();
 
-app.MapControllers();
+app.MapControllers().RequireRateLimiting("fixed");
 
 ExtensionsMiddleware.CreateFirstUser(app);
 
