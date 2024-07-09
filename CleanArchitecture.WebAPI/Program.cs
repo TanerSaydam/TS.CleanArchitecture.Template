@@ -2,7 +2,9 @@ using CleanArchitecture.Application;
 using CleanArchitecture.Infrastructure;
 using CleanArchitecture.WebAPI.Middlewares;
 using DefaultCorsPolicyNugetPackage;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.OData;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
@@ -60,8 +62,6 @@ builder.Services.AddRateLimiter(options =>
     });
 });
 
-builder.Services.AddHealthChecks().AddCheck("healthcheck", () => HealthCheckResult.Healthy());
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -81,5 +81,16 @@ app.UseExceptionHandler();
 app.MapControllers().RequireRateLimiting("fixed");
 
 ExtensionsMiddleware.CreateFirstUser(app);
+
+app.MapHealthChecks("/health-check", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+    ResultStatusCodes =
+    {
+        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+        [HealthStatus.Degraded] = StatusCodes.Status200OK,
+        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable,
+    }
+});
 
 app.Run();

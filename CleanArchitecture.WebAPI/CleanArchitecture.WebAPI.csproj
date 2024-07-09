@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="8.0.1" />
     <PackageReference Include="DefaultCorsPolicy" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="8.2.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.6">
