@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Ardalis.SmartEnum" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.7" />
     <PackageReference Include="TS.EntityFrameworkCore.GenericRepository" Version="8.0.2" />
   </ItemGroup>
 
