@@ -4,7 +4,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.WebAPI.Controllers;
-//[AllowAnonymous]
+[AllowAnonymous]
 public sealed class AuthController : ApiController
 {
     public AuthController(IMediator mediator) : base(mediator)
