@@ -2,6 +2,7 @@
 using CleanArchitecture.Infrastructure.Context;
 using CleanArchitecture.Infrastructure.Options;
 using GenericRepository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -40,9 +41,12 @@ public static class DependencyInjection
 
         services.Configure<JwtOptions>(configuration.GetSection("Jwt"));
         services.ConfigureOptions<JwtTokenOptionsSetup>();
-        services.AddAuthentication()
-            .AddJwtBearer();
-        services.AddAuthorizationBuilder();
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer();
+        services.AddAuthorization();
 
         services.Scan(action =>
         {

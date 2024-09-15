@@ -81,11 +81,15 @@ app.UseResponseCompression();
 
 app.UseCors();
 
+app.UseAuthentication();
+
+app.UseAuthorization();
+
 app.UseRateLimiter();
 
 app.UseExceptionHandler();
 
-app.MapControllers().RequireRateLimiting("fixed");
+app.MapControllers().RequireRateLimiting("fixed").RequireAuthorization();
 
 ExtensionsMiddleware.CreateFirstUser(app);
 
