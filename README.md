@@ -1,6 +1,6 @@
 # Clean Architecture
 
-Clean Architecture starter project for ASP.NET Core. [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is the latest in a series of architectures aiming towards a loosely-coupled, dependency-inverted architecture. You may also hear it referred to as [Hexagonal](http://alistair.cockburn.us/Hexagonal+architecture), [ports-and-adapters](http://www.dossier-andreas.net/software_architecture/ports_and_adapters.html), or [onion architecture](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/). ASP.NET Core için Clean Architecture başlangıç projesi.  loosely-coupled, dependency-inverted architecture mimarisine yönelik bir dizi mimarinin sonuncusu.  diye de adlandırıldığını duyabilirsiniz.
+Clean Architecture starter project for ASP.NET Core. [Clean Architecture](https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html) is the latest in a series of architectures aiming towards a loosely-coupled, dependency-inverted architecture. You may also hear it referred to as [Hexagonal](http://alistair.cockburn.us/Hexagonal+architecture), [ports-and-adapters](http://www.dossier-andreas.net/software_architecture/ports_and_adapters.html), or [onion architecture](http://jeffreypalermo.com/blog/the-onion-architecture-part-1/).
 
 ## Table Of Contents
 
