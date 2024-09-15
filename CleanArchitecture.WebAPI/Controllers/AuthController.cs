@@ -1,6 +1,7 @@
 ﻿using CleanArchitecture.Application.Features.Auth.Login;
 using CleanArchitecture.WebAPI.Abstractions;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CleanArchitecture.WebAPI.Controllers;
